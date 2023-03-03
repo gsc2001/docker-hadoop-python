@@ -2,13 +2,13 @@ DOCKER_NETWORK = docker-hadoop_default
 ENV_FILE = hadoop.env
 current_branch := hadoop3.2.4-python
 build:
-	docker build -t bde2020/hadoop-base:$(current_branch) ./base
-	docker build -t bde2020/hadoop-namenode:$(current_branch) ./namenode
-	docker build -t bde2020/hadoop-datanode:$(current_branch) ./datanode
-	docker build -t bde2020/hadoop-resourcemanager:$(current_branch) ./resourcemanager
-	docker build -t bde2020/hadoop-nodemanager:$(current_branch) ./nodemanager
-	docker build -t bde2020/hadoop-historyserver:$(current_branch) ./historyserver
-	docker build -t bde2020/hadoop-submit:$(current_branch) ./submit
+	docker build -t bde2020/hadoop-base:$(current_branch) --platform=linux/amd64 ./base
+	docker build -t bde2020/hadoop-namenode:$(current_branch) --platform=linux/amd64 ./namenode
+	docker build -t bde2020/hadoop-datanode:$(current_branch) --platform=linux/amd64 ./datanode
+	docker build -t bde2020/hadoop-resourcemanager:$(current_branch) --platform=linux/amd64 ./resourcemanager
+	docker build -t bde2020/hadoop-nodemanager:$(current_branch) --platform=linux/amd64 ./nodemanager
+	docker build -t bde2020/hadoop-historyserver:$(current_branch) --platform=linux/amd64 ./historyserver
+	docker build -t bde2020/hadoop-submit:$(current_branch) --platform=linux/amd64 ./submit
 
 wordcount:
 	docker build -t hadoop-wordcount ./submit
